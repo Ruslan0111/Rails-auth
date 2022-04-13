@@ -18,8 +18,9 @@ class Api::V1::ProductsController < ApplicationController
 
   def show
     product = Product.find(params[:id])
+    puts product.company.inspect
 
-    render json: { message: "Product show", data: product }, status: :ok
+    render json: { message: "Product show", data: { product: product, company: product.company } }, status: :ok
   end
 
   def destroy
@@ -33,7 +34,8 @@ class Api::V1::ProductsController < ApplicationController
     def product_params
       params.permit([
         :title,
-        :description
+        :description,
+        :company_id
       ])
     end
 end
