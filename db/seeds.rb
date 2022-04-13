@@ -9,3 +9,7 @@
 3.times do
   Product.create(title: Faker::Lorem.word, description: Faker::Lorem.sentence)
 end
+
+3.times do
+  Company.create(name: Faker::Lorem.word)
+end
